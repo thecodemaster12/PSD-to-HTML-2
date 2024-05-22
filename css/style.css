@@ -540,6 +540,10 @@ div[role="progressbar"]::before {
 .slicknav_menu  {
     background: transparent;
 }
+
+.slicknav_btn {
+    background-color: #13c4f9;
+}
 .slicknav_nav {
     position: absolute;
     background-color: #8fcaee;
@@ -1074,7 +1078,7 @@ div[role="progressbar"]::before {
     margin: auto;
     text-align: center;
     font-style: italic;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 .review-item span{
@@ -1082,7 +1086,7 @@ div[role="progressbar"]::before {
 }
 
 .review-item h6{
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .happy-customers-section .testimonial .nav-tabs {
@@ -1124,6 +1128,12 @@ div[role="progressbar"]::before {
 .team-card .sr-card-content {
     padding: 10px;
 }
+
+.team-card-img i {
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
 .team-card-img::after {
     content: '';
     position: absolute;
@@ -1137,6 +1147,7 @@ div[role="progressbar"]::before {
 }
 
 .team-card:hover .team-card-img::after,
+.team-card:hover .team-card-img i,
 .team-card:hover::after {
     opacity: 1;
 }
@@ -1434,7 +1445,7 @@ div[role="progressbar"]::before {
     font-size: 25px;
 }
 
-.icon-bg:hover i{
+.icon-card:hover .icon-bg i{
     background-color: #2f383d;
 }
 
@@ -1537,6 +1548,7 @@ div[role="progressbar"]::before {
 
 .video {
     width: 100%;
+    max-width: 800px;
     height: auto;
 }
 
@@ -2041,8 +2053,10 @@ div[role="progressbar"]::before {
 
 .blog-container-content {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    row-gap: 50px;
     place-items: center;
 }
 

@@ -152,6 +152,7 @@ $('#customers-review').owlCarousel({
 })
 
 
+// Search Function
 const searchIcon = document.getElementById('search-btn');
 const searchBar = document.getElementById('search-bar')
 
@@ -186,6 +187,7 @@ document.addEventListener('click', function(event) {
 //     }
 //   }});
 
+// Colorbox 
   $(".youtube").colorbox({iframe:true, innerWidth:680, innerHeight:382, href:function(){
         var videoId = new RegExp('[\\?&]v=([^&#]*)').exec(this.href);
     if (videoId && videoId[1]) {
@@ -219,6 +221,7 @@ if($(window).width() < 767){
 var containerEl = document.querySelector('.mixit-up');
 var mixer = mixitup(containerEl);
 
+// Mixit Up Filter Buttons
 var filterButtons = document.querySelectorAll('.filter-button');
 filterButtons.forEach(function (button) {
   button.addEventListener('click', function () {
@@ -232,6 +235,8 @@ filterButtons.forEach(function (button) {
 // Portfolio Feature card menu items
 // Get all the buttons
 var buttons = document.querySelectorAll('.menu-item');
+
+// const mix = document.querySelectorAll('.mix')
 
 // // Add a click event listener to each button
 // buttons.forEach(function(button) {
@@ -247,6 +252,7 @@ var buttons = document.querySelectorAll('.menu-item');
 // });
 
 
+const mixx = document.querySelector('.mix');
 
 // Add a click event listener to each button
 buttons.forEach(function(button) {
@@ -259,28 +265,62 @@ buttons.forEach(function(button) {
     // Add the active class to the clicked button
     this.classList.add('list-active');
 
-    // Get all the parent elements
-    const parents = document.querySelectorAll('.owl-item');
 
-// Loop through each parent element
-parents.forEach(parent => {
-  // Get the child element
-  const child = parent.querySelector('.mix');
+    const cards = document.querySelectorAll('.mix');
 
-  // Check if the child element has inline style display: none
-  if (child && child.style.display === 'none') {
-    // Apply display: none to the parent element
-    parent.style.display = 'none';
-    child.setAttribute('el-none', 'none');
-  } 
-  else if (child && child.getAttribute('el-none') === 'none') {
-    // Apply display: none to the parent element
-    parent.style.display = 'block';
-    child.style = ' ';
-    child.setAttribute('el-none', ' ');
-  }
+cards.forEach(card => {
+  card.addEventListener('change', ()=> {
+
+    const style = card.getAttribute('style');
+    const parentElement = card.parentElement;
+  
+    if ( style.includes('display: none')) {
+      parentElement.style.display = 'none';
+      // parentElement.classList.add = 'd-none';
+      // parentElement.classList.remove = 'd-block';
+    }
+  })
+  // else if (style && style.includes(' ')) {
+  //   parentElement.style.display = 'block';
+  //   // parentElement.classList.add = 'd-none';
+  //   // parentElement.classList.remove = 'd-block';
+  // }
+  // else {
+  //   parentElement.style.display = 'block';
+  // }
 });
 
+    // // const parentElement = mix.parentNode;
+    // mixx.addEventListener('change', (el)=>{
+    //   const styleAttributeValue = el.getAttribute('style');
+  
+    //   if (styleAttributeValue === '') {
+    //     // parentElement.classList.add('d-block');
+    //     // parentElement.style
+    //     console.log('The class "mix" has a style attribute with no value.');
+    //   } else {
+    //     console.log('The class "mix" does not have a style attribute with no value.');
+    //     // parentElement.classList.add('d-none');
+    //   }
+    // })
+
+// const element = document.querySelectorAll('.mix');
+// const styleAttributeValue = element.getAttribute('style');
+// const parentElement = element.parentElement;
+
+// element.addEventListener(()=> {
+
+// })
+
+// if (styleAttributeValue === '') {
+//   console.log('The class "mix" has a style attribute with no value.');
+//   // parentElement.style.display = "none"
+// } else {
+//   console.log('The class "mix" does not have a style attribute with no value.');
+//   // parentElement.style.display = "block"
+// }
+
+    
   });
 });
 
