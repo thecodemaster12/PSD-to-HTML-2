@@ -1129,7 +1129,7 @@ div[role="progressbar"]::before {
     padding: 10px;
 }
 
-.team-card-img i {
+.team-card-img > i {
     opacity: 0;
     transition: all .5s ease-in-out;
 }
