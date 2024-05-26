@@ -236,23 +236,7 @@ filterButtons.forEach(function (button) {
 // Get all the buttons
 var buttons = document.querySelectorAll('.menu-item');
 
-// const mix = document.querySelectorAll('.mix')
-
-// // Add a click event listener to each button
-// buttons.forEach(function(button) {
-//   button.addEventListener('click', function() {
-//     // Remove the active class from all buttons
-//     buttons.forEach(function(btn) {
-//       btn.classList.remove('list-active');
-//     });
-
-//     // Add the active class to the clicked button
-//     this.classList.add('list-active');
-//   });
-// });
-
-
-const mixx = document.querySelector('.mix');
+const mix = document.querySelectorAll('.mix')
 
 // Add a click event listener to each button
 buttons.forEach(function(button) {
@@ -264,31 +248,47 @@ buttons.forEach(function(button) {
 
     // Add the active class to the clicked button
     this.classList.add('list-active');
-
-
-    const cards = document.querySelectorAll('.mix');
-
-cards.forEach(card => {
-  card.addEventListener('change', ()=> {
-
-    const style = card.getAttribute('style');
-    const parentElement = card.parentElement;
-  
-    if ( style.includes('display: none')) {
-      parentElement.style.display = 'none';
-      // parentElement.classList.add = 'd-none';
-      // parentElement.classList.remove = 'd-block';
-    }
-  })
-  // else if (style && style.includes(' ')) {
-  //   parentElement.style.display = 'block';
-  //   // parentElement.classList.add = 'd-none';
-  //   // parentElement.classList.remove = 'd-block';
-  // }
-  // else {
-  //   parentElement.style.display = 'block';
-  // }
+  });
 });
+
+
+// const mixx = document.querySelector('.mix');
+
+// // Add a click event listener to each button
+// buttons.forEach(function(button) {
+//   button.addEventListener('click', function() {
+//     // Remove the active class from all buttons
+//     buttons.forEach(function(btn) {
+//       btn.classList.remove('list-active');
+//     });
+
+//     // Add the active class to the clicked button
+//     this.classList.add('list-active');
+
+
+//     const cards = document.querySelectorAll('.mix');
+
+// cards.forEach(card => {
+//   card.addEventListener('change', ()=> {
+
+//     const style = card.getAttribute('style');
+//     const parentElement = card.parentElement;
+  
+//     if ( style.includes('display: none')) {
+//       parentElement.style.display = 'none';
+//       // parentElement.classList.add = 'd-none';
+//       // parentElement.classList.remove = 'd-block';
+//     }
+//   })
+//   // else if (style && style.includes(' ')) {
+//   //   parentElement.style.display = 'block';
+//   //   // parentElement.classList.add = 'd-none';
+//   //   // parentElement.classList.remove = 'd-block';
+//   // }
+//   // else {
+//   //   parentElement.style.display = 'block';
+//   // }
+// });
 
     // // const parentElement = mix.parentNode;
     // mixx.addEventListener('change', (el)=>{
@@ -321,8 +321,6 @@ cards.forEach(card => {
 // }
 
     
-  });
-});
 
 
 // // Get all the parent elements
@@ -342,4 +340,36 @@ cards.forEach(card => {
 //   //   // Apply display: none to the parent element
 //   //   parent.style.display = 'block';
 //   // }
+// });
+
+
+// // Run this code whenever the DOM is ready
+// $(document).ready(function() {
+//   // Select all elements with the 'mix' class
+//   $('.mix').each(function() {
+//     // Store a reference to the current 'mix' element
+//     var mixElement = $(this);
+
+//     // Create an observer to watch for changes to the 'style' attribute
+//     var observer = new MutationObserver(function(mutations) {
+//       mutations.forEach(function(mutation) {
+//         if (mutation.attributeName === 'style') {
+//           // Get the 'display' property of the 'mix' element
+
+//           if( mixElement.css('display') === 'none') {
+//             mixElement.closest('.owl-item').css('display', 'none');
+//           }
+//           else 
+//             mixElement.closest('.owl-item').css('display', 'block');
+
+//           // var displayProperty = mixElement.css('display');
+
+//           // Apply the same 'display' property to the parent 'owl-item' element
+//         }
+//       });
+//     });
+
+//     // Start observing the 'mix' element for changes to its 'style' attribute
+//     observer.observe(mixElement[0], { attributes: true });
+//   });
 // });
