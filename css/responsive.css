@@ -15,9 +15,9 @@
 
 /************IPad**************/
 @media only screen and (min-width: 992px) and (max-width: 1366px) {
-body {
+/* body {
 	background-color: red;
-}
+} */
 
 .hero-card-content {
 	width: 50%;
@@ -49,9 +49,9 @@ body {
 		width: 50%;
 		left: 50%;
 	}
-	body {
+	/* body {
 		background-color: green;
-	}
+	} */
 
 	.hero-card-content {
 		width: 70%;
@@ -85,9 +85,9 @@ body {
 
 @media only screen and (max-width: 767px) {
 
-	body {
+	/* body {
 		background-color: blue;
-	}
+	} */
 	.hero-card-content p {
 		font-size: 14px;
 	}
@@ -199,9 +199,9 @@ body {
 
 @media only screen and (min-width: 579px) and (max-width: 768px) {
 
-	body {
+	/* body {
 		background-color: yellow;
-	}
+	} */
 
 	#portfolio-inner.owl-carousel .owl-stage-outer {
 		height: 430px;

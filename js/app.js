@@ -1,3 +1,34 @@
+// Progress Bar
+
+const circularProgress = document.querySelectorAll(".circular-progress");
+
+Array.from(circularProgress).forEach((progressBar) => {
+  const progressValue = progressBar.querySelector(".percentage");
+  const innerCircle = progressBar.querySelector(".inner-circle");
+  let startValue = 0,
+    endValue = Number(progressBar.getAttribute("data-percentage")),
+    speed = 50,
+    progressColor = progressBar.getAttribute("data-progress-color");
+
+  const progress = setInterval(() => {
+    startValue++;
+    progressValue.textContent = `${startValue}%`;
+    progressValue.style.color = `${progressColor}`;
+
+    innerCircle.style.backgroundColor = `${progressBar.getAttribute(
+      "data-inner-circle-color"
+    )}`;
+
+    progressBar.style.background = `conic-gradient(${progressColor} ${
+      startValue * 3.6
+    }deg,${progressBar.getAttribute("data-bg-color")} 0deg)`;
+    if (startValue === endValue) {
+      clearInterval(progress);
+    }
+  }, speed);
+});
+
+
 $(document).ready(function() {
     $('.desktop-menu').slicknav({
         prependTo: '.mobile-menu',
@@ -43,8 +74,9 @@ $('#sub-hero').owlCarousel({
     margin: 0,
     nav:true,
     dots: false,
+    stagePadding: 30,
     // autoWidth: true,
-    center: false,
+    // center: true,
     responsive:{
       0:{
           items:1
@@ -53,13 +85,16 @@ $('#sub-hero').owlCarousel({
           items:2
       },
       700:{
-          items:3
+          items:2
       },
       1000:{
-          items:4
+          items:3
       },
-      1200:{
+      1400:{
           items:5
+      },
+      2000:{
+          items:7
       }
   }
 })
@@ -151,6 +186,37 @@ $('#customers-review').owlCarousel({
     items: 1,
 })
 
+// Categories List
+const showList = document.getElementById('show-list');
+const showSubList = document.getElementById('show-sub-list');
+const subList = document.getElementById('sub-list');
+const subSubList = document.getElementById('sub-sub-list');
+
+showList.addEventListener('click', () => {
+  if (subList.style.display === 'none' || subList.style.display === '') {
+    subList.style.display = 'block';
+    // subList.classList.add('d-block');
+    // subList.classList.remove('d-none');
+    
+  } else {
+    subList.style.display = 'none';
+    // subList.classList.add('d-none');
+    // subList.classList.remove('d-block');
+  }
+})
+
+showSubList.addEventListener('click', () => {
+  if (subSubList.style.display === 'none' || subSubList.style.display === '') {
+    subSubList.style.display = 'block';
+    // subList.classList.add('d-block');
+    // subList.classList.remove('d-none');
+  } else {
+    subSubList.style.display = 'none';
+    // subList.classList.add('d-none');
+    // subList.classList.remove('d-block');
+  }
+})
+
 
 // Search Function
 const searchIcon = document.getElementById('search-btn');
@@ -178,43 +244,6 @@ document.addEventListener('click', function(event) {
     isSearchBarVisible = false;
   }
 });
-
-
-// $('.youtube').colorbox({iframe: true, width: 640, height: 390, href:function(){
-//     var videoId = new RegExp('[\\?&]v=([^&#]*)').exec(this.href);
-//     if (videoId && videoId[1]) {
-//       return 'http://youtube.com/embed/'+videoId[1]+'?rel=0&wmode=transparent';
-//     }
-//   }});
-
-// Colorbox 
-  $(".youtube").colorbox({iframe:true, innerWidth:680, innerHeight:382, href:function(){
-        var videoId = new RegExp('[\\?&]v=([^&#]*)').exec(this.href);
-    if (videoId && videoId[1]) {
-      return 'http://youtube.com/embed/'+videoId[1]+'?rel=0&wmode=transparent';
-    }
-  }});
-  $(".group2").colorbox({rel:'group2'});
-          
-          //Example of preserving a JavaScript event for inline calls.
-          $("#click").click(function(){ 
-              $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-              return false;
-  });
-
-  if($(window).width() < 768){
-    $(".youtube").colorbox({iframe:true, innerWidth:480, innerHeight:270});
-    $(".group2").colorbox({rel:'group2',innerWidth:480, innerHeight:270});
-}
-  if($(window).width() < 1024){
-    $(".youtube").colorbox({iframe:true, innerWidth:480, innerHeight:270});
-    $(".group2").colorbox({rel:'group2',innerWidth:480, innerHeight:270});
-}
-
-if($(window).width() < 767){
-    $(".youtube").colorbox({iframe:true, innerWidth:320, innerHeight:250});
-    $(".group2").colorbox({rel:'group2',innerWidth:320, innerHeight:250});
-}
 
 
 // Mixit Up
@@ -252,124 +281,4 @@ buttons.forEach(function(button) {
 });
 
 
-// const mixx = document.querySelector('.mix');
 
-// // Add a click event listener to each button
-// buttons.forEach(function(button) {
-//   button.addEventListener('click', function() {
-//     // Remove the active class from all buttons
-//     buttons.forEach(function(btn) {
-//       btn.classList.remove('list-active');
-//     });
-
-//     // Add the active class to the clicked button
-//     this.classList.add('list-active');
-
-
-//     const cards = document.querySelectorAll('.mix');
-
-// cards.forEach(card => {
-//   card.addEventListener('change', ()=> {
-
-//     const style = card.getAttribute('style');
-//     const parentElement = card.parentElement;
-  
-//     if ( style.includes('display: none')) {
-//       parentElement.style.display = 'none';
-//       // parentElement.classList.add = 'd-none';
-//       // parentElement.classList.remove = 'd-block';
-//     }
-//   })
-//   // else if (style && style.includes(' ')) {
-//   //   parentElement.style.display = 'block';
-//   //   // parentElement.classList.add = 'd-none';
-//   //   // parentElement.classList.remove = 'd-block';
-//   // }
-//   // else {
-//   //   parentElement.style.display = 'block';
-//   // }
-// });
-
-    // // const parentElement = mix.parentNode;
-    // mixx.addEventListener('change', (el)=>{
-    //   const styleAttributeValue = el.getAttribute('style');
-  
-    //   if (styleAttributeValue === '') {
-    //     // parentElement.classList.add('d-block');
-    //     // parentElement.style
-    //     console.log('The class "mix" has a style attribute with no value.');
-    //   } else {
-    //     console.log('The class "mix" does not have a style attribute with no value.');
-    //     // parentElement.classList.add('d-none');
-    //   }
-    // })
-
-// const element = document.querySelectorAll('.mix');
-// const styleAttributeValue = element.getAttribute('style');
-// const parentElement = element.parentElement;
-
-// element.addEventListener(()=> {
-
-// })
-
-// if (styleAttributeValue === '') {
-//   console.log('The class "mix" has a style attribute with no value.');
-//   // parentElement.style.display = "none"
-// } else {
-//   console.log('The class "mix" does not have a style attribute with no value.');
-//   // parentElement.style.display = "block"
-// }
-
-    
-
-
-// // Get all the parent elements
-// const parents = document.querySelectorAll('.owl-item');
-
-// // Loop through each parent element
-// parents.forEach(parent => {
-//   // Get the child element
-//   const child = parent.querySelector('.mix');
-
-//   // Check if the child element has inline style display: none
-//   if (child && child.style.display === 'none') {
-//     // Apply display: none to the parent element
-//     parent.style.display = 'none';
-//   } 
-//   // else if (child && !child.style === '') {
-//   //   // Apply display: none to the parent element
-//   //   parent.style.display = 'block';
-//   // }
-// });
-
-
-// // Run this code whenever the DOM is ready
-// $(document).ready(function() {
-//   // Select all elements with the 'mix' class
-//   $('.mix').each(function() {
-//     // Store a reference to the current 'mix' element
-//     var mixElement = $(this);
-
-//     // Create an observer to watch for changes to the 'style' attribute
-//     var observer = new MutationObserver(function(mutations) {
-//       mutations.forEach(function(mutation) {
-//         if (mutation.attributeName === 'style') {
-//           // Get the 'display' property of the 'mix' element
-
-//           if( mixElement.css('display') === 'none') {
-//             mixElement.closest('.owl-item').css('display', 'none');
-//           }
-//           else 
-//             mixElement.closest('.owl-item').css('display', 'block');
-
-//           // var displayProperty = mixElement.css('display');
-
-//           // Apply the same 'display' property to the parent 'owl-item' element
-//         }
-//       });
-//     });
-
-//     // Start observing the 'mix' element for changes to its 'style' attribute
-//     observer.observe(mixElement[0], { attributes: true });
-//   });
-// });
