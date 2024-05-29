@@ -186,36 +186,6 @@ $('#customers-review').owlCarousel({
     items: 1,
 })
 
-// Categories List
-const showList = document.getElementById('show-list');
-const showSubList = document.getElementById('show-sub-list');
-const subList = document.getElementById('sub-list');
-const subSubList = document.getElementById('sub-sub-list');
-
-showList.addEventListener('click', () => {
-  if (subList.style.display === 'none' || subList.style.display === '') {
-    subList.style.display = 'block';
-    // subList.classList.add('d-block');
-    // subList.classList.remove('d-none');
-    
-  } else {
-    subList.style.display = 'none';
-    // subList.classList.add('d-none');
-    // subList.classList.remove('d-block');
-  }
-})
-
-showSubList.addEventListener('click', () => {
-  if (subSubList.style.display === 'none' || subSubList.style.display === '') {
-    subSubList.style.display = 'block';
-    // subList.classList.add('d-block');
-    // subList.classList.remove('d-none');
-  } else {
-    subSubList.style.display = 'none';
-    // subList.classList.add('d-none');
-    // subList.classList.remove('d-block');
-  }
-})
 
 
 // Search Function
@@ -246,39 +216,35 @@ document.addEventListener('click', function(event) {
 });
 
 
-// Mixit Up
-var containerEl = document.querySelector('.mixit-up');
-var mixer = mixitup(containerEl);
-
-// Mixit Up Filter Buttons
-var filterButtons = document.querySelectorAll('.filter-button');
-filterButtons.forEach(function (button) {
-  button.addEventListener('click', function () {
-    var filterValue = button.getAttribute('data-filter');
-    mixer.filter(filterValue);
-  });
-});
 
 
+// Categories List
+const showList = document.querySelector('#show-list');
+const showSubList = document.querySelector('#show-sub-list');
+const subList = document.querySelector('#sub-list');
+const subSubList = document.querySelector('#sub-sub-list');
 
-// Portfolio Feature card menu items
-// Get all the buttons
-var buttons = document.querySelectorAll('.menu-item');
+showList.addEventListener('click', () => {
+  if (subList.style.display === 'none' || subList.style.display === '') {
+    subList.style.display = 'block';
+    
+  } else {
+    subList.style.display = 'none';
+  }
+})
 
-const mix = document.querySelectorAll('.mix')
+showSubList.addEventListener('click', () => {
+  if (subSubList.style.display === 'none' || subSubList.style.display === '') {
+    subSubList.style.display = 'block';
+  } else {
+    subSubList.style.display = 'none';
+  }
+})
 
-// Add a click event listener to each button
-buttons.forEach(function(button) {
-  button.addEventListener('click', function() {
-    // Remove the active class from all buttons
-    buttons.forEach(function(btn) {
-      btn.classList.remove('list-active');
-    });
 
-    // Add the active class to the clicked button
-    this.classList.add('list-active');
-  });
-});
+
+
+
 
 
 

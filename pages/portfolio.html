@@ -618,6 +618,33 @@
     <script src="../js/mixitup.min.js"></script>
     <!-- My JS -->
     <script src="../js/app.js"></script>
+
+    <script>
+        // Mixit Up
+var containerEl = document.querySelector('.mixit-up');
+var mixer = mixitup(containerEl);
+
+
+
+// Portfolio Feature card menu items
+// Get all the buttons
+var buttons = document.querySelectorAll('.menu-item');
+
+const mix = document.querySelectorAll('.mix')
+
+// Add a click event listener to each button
+buttons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    // Remove the active class from all buttons
+    buttons.forEach(function(btn) {
+      btn.classList.remove('list-active');
+    });
+
+    // Add the active class to the clicked button
+    this.classList.add('list-active');
+  });
+});
+    </script>
 </body>
 
 </html>
